@@ -70,17 +70,6 @@ function Chat() {
 
     }, [fileUrl])
 
-    const onSubmit = (e) => {
-        e.preventDefault();
-        db.collection('rooms')
-            .doc(roomId)
-            .collection('messages').add({
-                image: fileUrl,
-                name: user,
-                message: input,
-                timestamp: firebase.firestore.FieldValue.serverTimestamp()
-            });
-    }
     const showOpenFileDlg = () => {
         inputOpenFileRef.current.click()
     }
@@ -103,7 +92,7 @@ function Chat() {
                             <p>
                                 {message.image && (
 
-                                    <img src={message.image} />
+                                    <img src={message.image} alt="media"/>
 
                                 )}
                                 {message.message}

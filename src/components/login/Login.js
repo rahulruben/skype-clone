@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { useSelector, useDispatch } from 'react-redux';
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux';
 import * as actions from '../../redux/action';
 import PersonIcon from '@material-ui/icons/Person';
 import './Login.css';
