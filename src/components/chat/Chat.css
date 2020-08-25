@@ -1,0 +1,118 @@
+
+.chat {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat__header {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    padding: 1.5em 2em;
+    border-bottom: 1px solid #d3d3d3;
+}
+
+.chat__header > .MuiAvatar-root {
+    width: 60px;
+    height: 60px;
+}
+
+.chat__header > .status {
+    width: 12px;
+    height: 12px;
+}
+
+.chat__header > .person {
+    color: #727272;
+    margin-left: 1em;
+    font-size: 1.3em;
+    font-weight: 100;
+}
+
+.chat__body {
+    flex: 1;
+    padding: 1em;
+    overflow: auto;
+}
+
+.chat__footer {
+    display: flex;
+    height: 80px;
+    border-top: 1px solid #d3d3d3;
+    padding: 1em 3em;
+}
+
+.chat__footer > form {
+    flex: 1;
+    height: 100%;
+}
+
+.chat__footer > form > input {
+    border: none;
+    height: 100%;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1em;
+    width: 100%;
+}
+
+.chat__footer > form > button {
+   display: none;
+}
+
+.chat__footer > .MuiButtonBase-root {
+    color: #31acf3;
+ }
+ 
+
+.message {
+    display: flex;
+    align-items: center;
+    /* width: fit-content; */
+}
+
+.message > .MuiAvatar-root {
+    margin: 1em;
+}
+
+.message > p {
+    position: relative;
+    padding: 1em;
+    background-color: #f5f5f5;
+    border-radius: 12px;
+    color: #897272;
+    font-size: .9em;
+    min-width: 30%;
+}
+
+.message.reciever {
+    width: 100%;
+    justify-content: flex-end;
+    margin-top: 2em;
+}
+
+.message.reciever > .MuiAvatar-root {
+    display: none;
+}
+
+.message.reciever > p {
+    background-color: #ecf8ff;
+    color: #31acf3;
+}
+
+.message > p > .timestamp {
+    position: absolute;
+    bottom: -20px;
+    left: 6px;
+    font-size: .7em;
+    color: #897272;
+    width: 100%;
+}
+
+.message.reciever > p > .timestamp {
+    right: 6px;
+    left: initial;
+    text-align: right;
+}
+
+

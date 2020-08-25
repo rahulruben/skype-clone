@@ -1,0 +1,24 @@
+
+.person {
+    color: #fff;
+    font-weight: 600;
+}
+
+.chat__person {
+    display: flex;
+    align-items: center;
+    padding: 1em 2em;
+    cursor: pointer;
+}
+
+.chat__person:hover {
+    background-color: #0094ea;
+}
+
+.chat__person > .MuiAvatar-root {
+    margin-right: 1em;
+}
+
+a {
+    text-decoration: none !important;
+}

@@ -1,0 +1,76 @@
+
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    flex: 0.3;
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+    background-color: #31acf3;
+}
+
+.sidebar__icons {
+    display: flex;
+    flex-direction: column;
+    flex: 0.3;
+}
+
+.sidebar__people {
+    flex: 1;
+}
+
+.skype {
+    display: flex;
+    justify-content: center;
+    padding: 2em;
+}
+
+.skype::before {
+    content: '';
+    display: block;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/c/c3/Microsoft_Skype_for_Business_logo.svg');
+    width: 60px;
+    height: 60px;
+    background-size: 60px 60px;
+}
+
+
+.interactions {
+    display: flex;
+    justify-content: center;
+}
+
+.interactions > .MuiIconButton-root {
+    color: white;
+}
+.statuses {
+    display: flex;
+    justify-content: space-around;
+    margin: 1em 3em;
+}
+
+.person__message {
+    font-weight: 100;
+    opacity: .8;
+    text-overflow: ellipsis;
+    font-size: .8em;
+    letter-spacing: 0.3px;
+}
+
+.statuses__title {
+    color: white;
+    opacity: .4;
+}
+
+.title--active {
+    opacity: 1;
+}
+
+
+.status {
+    background-color: #6de201;
+    width: 8px;
+    height: 8px;
+    margin-right: 1em;
+    border-radius: 20px;
+}
