@@ -1,6 +1,6 @@
 # Skype Clone
 
-Skype clone a skype representation in Reactjs using the Redux using hooks for state management<br />
+Skype clone is a skype representation in Reactjs using the Redux with hooks for state management<br />
 Firestore is used to store all the message as per the room ids<br />
 Fire Storage used for storing images and reference by URLs from Firestore
 
