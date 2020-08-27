@@ -4,10 +4,14 @@ import { Link } from 'react-router-dom';
 import { Avatar } from '@material-ui/core';
 import { useEffect, useState } from 'react'
 import db from '../../firebase';
+import { useDispatch } from 'react-redux';
+import * as actions from '../../redux/action';
+
 function Sidechat({ name, id }) {
     const [messages, setMessages] = useState('');
-
+    const dispatch = useDispatch();
     useEffect(() => {
+        
         if (id) {
             db.collection('rooms')
                 .doc(id)
@@ -18,8 +22,13 @@ function Sidechat({ name, id }) {
                 )
         }
     }, [])
+
+    const hideSideBar = () => {
+        dispatch(actions.setSidebarVisibilitiy(true))
+    }
+
     return (
-        <div className="sidechat">
+        <div className="sidechat" onClick={hideSideBar} >
             <Link to={`/rooms/${id}`}>
                 <div className="chat__person">
                     <span className="status"></span>

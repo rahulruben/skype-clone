@@ -7,3 +7,12 @@ export const setUser = (user) => (
         }
     }
 )
+
+export const setSidebarVisibilitiy = (isSideBarHidden) => (
+    {
+        type: actions.SIDEBAR_HIDDEN,
+        payload: {
+            sideBarHidden: isSideBarHidden
+        }
+    }
+)

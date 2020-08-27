@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import './Chat.css';
 import db from '../../firebase';
 import { Avatar } from '@material-ui/core';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import firebase from 'firebase';
 import { useParams } from 'react-router-dom';
 import WallpaperIcon from '@material-ui/icons/Wallpaper';
@@ -11,16 +11,18 @@ import MicNoneIcon from '@material-ui/icons/MicNone';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon';
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import * as actions from '../../redux/action';
 
 function Chat() {
     const [room, setRoom] = useState();
+    const dispatch = useDispatch();
     const { roomId } = useParams();
     const [messages, setMessages] = useState();
     const [input, setInput] = useState('');
     const user = useSelector(state => state.user);
     const [fileUrl, setFileUrl] = useState();
     const inputOpenFileRef = useRef(null);
-
 
     useEffect(() => {
         if (roomId) {
@@ -77,6 +79,9 @@ function Chat() {
     return (
         <div className="chat">
             <div className="chat__header">
+                <IconButton className="hidden" onClick={() => dispatch(actions.setSidebarVisibilitiy(false))}>
+                    <ArrowBackIosIcon />
+                </IconButton>
                 <span className="status"></span>
                 <Avatar />
                 <div className="person">
@@ -92,7 +97,7 @@ function Chat() {
                             <p>
                                 {message.image && (
 
-                                    <img src={message.image} alt="media"/>
+                                    <img src={message.image} alt="media" />
 
                                 )}
                                 {message.message}

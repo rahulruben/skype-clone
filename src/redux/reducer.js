@@ -10,6 +10,12 @@ export default function reducer(state = initialState, action) {
                 user: action.payload.user
 
             }
+        case actions.SIDEBAR_HIDDEN:
+            return {
+                ...state,
+                sideBarHidden: action.payload.sideBarHidden
+
+            }
         default:
             return state;
     }

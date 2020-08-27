@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import './Sidebar.css';
 import PermIdentityOutlinedIcon from '@material-ui/icons/PermIdentityOutlined';
 import QueryBuilderOutlinedIcon from '@material-ui/icons/QueryBuilderOutlined';
@@ -8,9 +8,12 @@ import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
 import { IconButton } from '@material-ui/core';
 import db from '../../firebase';
 import Sidechat from '../sidechat/Sidechat';
+import { useSelector } from 'react-redux';
 
 function Sidebar() {
     const [rooms, setRooms] = useState([]);
+    const sideBar = useRef();
+    const sideBarHidden = useSelector(state => state.sideBarHidden)
 
     useEffect(() => {
         const unsubscribe = db.collection('rooms').onSnapshot(snapshot => (
@@ -21,8 +24,17 @@ function Sidebar() {
         ));
         return () => unsubscribe()
     }, [])
+
+    useEffect(() => {
+        if (sideBarHidden) {
+            sideBar.current.classList.add('hide')
+        } else {
+            sideBar.current.classList.remove('hide')
+        }
+    }, [sideBarHidden])
+
     return (
-        <div className="sidebar">
+        <div ref={sideBar} className="sidebar">
             <div className="sidebar__icons">
                 <div className="skype"></div>
                 <div className="interactions">
